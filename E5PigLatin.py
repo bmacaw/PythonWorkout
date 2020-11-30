@@ -110,29 +110,45 @@ print(pig_latin(word_8))
 # TODO: Consider an alternative version of Pig Latin
 
 
-def pig_latin(english_word_string):
-    vowels = 'aeiouAEIOU'
+def my_latin(english_word):
+    vowels = 'aeiou'
     punctuation = ''
-    all_caps = english_word_string.upper()
+    all_caps = english_word.upper()
 
-    if english_word_string[-1] in '?!.':
-        punctuation = english_word_string[-1]
-        english_word_string = english_word_string[:-1]
+    if english_word[-1] in '?!.':
+        punctuation = english_word[-1]
+        english_word_string = english_word[:-1]
 
-    if english_word_string[0] in vowels:
-        if english_word_string == all_caps:
-            translation = english_word_string + 'WAY' + punctuation
-        elif english_word_string[0] == english_word_string[0].upper():
-            translation = english_word_string + 'way' + punctuation
+    if english_word[0].lower() in vowels:
+        if english_word == all_caps:
+            #  TODO: change to translate to My Latin and use f strings
+            translation = f'{english_word}WAY' + punctuation
+        elif english_word[0] == english_word[0].upper():
+            #  TODO: change to translate to My Latin and use f strings
+            translation = f'{english_word}way' + punctuation
         else:
-            translation = english_word_string + 'way' + punctuation
+            #  TODO: change to translate to My Latin and use f strings
+            translation = f'{english_word}way' + punctuation
     else:
-        if english_word_string == all_caps:
-            translation = english_word_string[1:] + english_word_string[0] + 'AY' + punctuation
-        elif english_word_string[0] == english_word_string[0].upper():
-            translation = english_word_string[1].upper() + english_word_string[2:]\
-                          + english_word_string[0].lower() + 'ay' + punctuation
+        if english_word == all_caps:
+            #  TODO: change to translate to My Latin and use f strings
+            translation = f'{english_word[1:]}{english_word[0]}AY' + punctuation
+        elif english_word[0] == english_word[0].upper():
+            #  TODO: change to translate to My Latin and use f strings
+            translation = f'{english_word[1].upper()}{english_word[2:]}' \
+                          f'{english_word[0].lower()}ay' + punctuation
         else:
-            translation = english_word_string[1:] + english_word_string[0] + 'ay' + punctuation
+            #  TODO: change to translate to My Latin and use f strings
+            translation = f'{english_word[1:]}{english_word[0]}ay' + punctuation
 
     return translation
+
+
+word_1 = 'Finn'
+word_2 = 'Boise airport'
+word_3 = 'puppy'
+word_4 = 'equine'
+word_5 = 'TESLA'
+word_6 = 'ACROBAT'
+word_7 = 'Tesla!'
+word_8 = 'Boise airport?'
