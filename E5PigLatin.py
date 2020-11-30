@@ -2,28 +2,18 @@
 # assumed to be an English word. The function should return the
 # translation of this word into Pig Latin.
 
-def pig_latin(english_word_string):
+def limited_pig_latin(english_word_string):
     vowels = 'a', 'e', 'i', 'o', 'u'
     if english_word_string[0] in vowels:
         return english_word_string + 'way'
     else:
         return english_word_string[1:-1] + english_word_string[0].lower() + 'ay'
 
-
-word_1 = 'Finn'
-word_2 = 'airport'
-word_3 = 'puppy'
-word_4 = 'equine'
-print(pig_latin(word_1))
-print(pig_latin(word_2))
-print(pig_latin(word_3))
-print(pig_latin(word_4))
-
 # Beyond the exercise:
 # Handle capitalized words
 
 
-def pig_latin(english_word_string):
+def pig_latin_caps_too(english_word_string):
     vowels = 'aeiouAEIOU'
     all_caps = english_word_string.upper()
     if english_word_string[0] in vowels:
@@ -45,24 +35,11 @@ def pig_latin(english_word_string):
     return translation
 
 
-word_1 = 'Finn'
-word_2 = 'Boise airport'
-word_3 = 'puppy'
-word_4 = 'equine'
-word_5 = 'TESLA'
-word_6 = 'ACROBAT'
-print(pig_latin(word_1))
-print(pig_latin(word_2))
-print(pig_latin(word_3))
-print(pig_latin(word_4))
-print(pig_latin(word_5))
-print(pig_latin(word_6))
-
 # Handle Punctuation: if a word ends with punctuation, then
 # that punctuation should be shifted to the end of the translated word.
 
 
-def pig_latin(english_word_string):
+def pig_latin_complete(english_word_string):
     vowels = 'aeiouAEIOU'
     punctuation = ''
     all_caps = english_word_string.upper()
@@ -90,65 +67,49 @@ def pig_latin(english_word_string):
     return translation
 
 
-word_1 = 'Finn'
-word_2 = 'Boise airport'
-word_3 = 'puppy'
-word_4 = 'equine'
-word_5 = 'TESLA'
-word_6 = 'ACROBAT'
-word_7 = 'Tesla!'
-word_8 = 'Boise airport?'
-print(pig_latin(word_1))
-print(pig_latin(word_2))
-print(pig_latin(word_3))
-print(pig_latin(word_4))
-print(pig_latin(word_5))
-print(pig_latin(word_6))
-print((pig_latin(word_7)))
-print(pig_latin(word_8))
-
-# TODO: Consider an alternative version of Pig Latin
+# Consider an alternative version of Pig Latin
 
 
-def my_latin(english_word):
-    vowels = 'aeiou'
-    punctuation = ''
-    all_caps = english_word.upper()
+def my_latin():
+    word_list = []
+    word_count = 0
+    print('Enter five words to translate at the prompt.')
+    while word_count < 5:
+        my_word = input('Enter a word: ')
+        word_list.append(my_word)
+        word_count += 1
+    my_ending = input('Enter any one syllable three letter (cvc) word ending: ')
 
-    if english_word[-1] in '?!.':
-        punctuation = english_word[-1]
-        english_word_string = english_word[:-1]
+    for word in word_list:
+        this_word = word
+        vowels = 'aeiou'
+        punctuation = ''
 
-    if english_word[0].lower() in vowels:
-        if english_word == all_caps:
-            #  TODO: change to translate to My Latin and use f strings
-            translation = f'{english_word}WAY' + punctuation
-        elif english_word[0] == english_word[0].upper():
-            #  TODO: change to translate to My Latin and use f strings
-            translation = f'{english_word}way' + punctuation
+        if this_word[-1] in '?!.':
+            punctuation = this_word[-1]
+            this_word = this_word[:-1]
+
+        if this_word[0].lower() in vowels:
+            all_caps = this_word.upper()
+            v_case = my_ending
+            v_u_case = my_ending.upper()
+
+            if this_word == all_caps:
+                translation = f'{this_word}{v_u_case}{punctuation}'
+            elif this_word[0] == this_word[0].upper():
+                translation = f'{this_word}{v_case}{punctuation}'
+            else:
+                translation = f'{this_word}{v_case}{punctuation}'
         else:
-            #  TODO: change to translate to My Latin and use f strings
-            translation = f'{english_word}way' + punctuation
-    else:
-        if english_word == all_caps:
-            #  TODO: change to translate to My Latin and use f strings
-            translation = f'{english_word[1:]}{english_word[0]}AY' + punctuation
-        elif english_word[0] == english_word[0].upper():
-            #  TODO: change to translate to My Latin and use f strings
-            translation = f'{english_word[1].upper()}{english_word[2:]}' \
-                          f'{english_word[0].lower()}ay' + punctuation
-        else:
-            #  TODO: change to translate to My Latin and use f strings
-            translation = f'{english_word[1:]}{english_word[0]}ay' + punctuation
+            c_case = my_ending[1:]
+            c_u_case = my_ending[1:].upper()
+            all_caps = this_word.upper()
+            if this_word == all_caps:
+                translation = f'{this_word[1:]}{this_word[0].upper()}{c_u_case}{punctuation}'
+            elif this_word[0] == this_word[0].upper():
+                translation = f'{this_word[1].upper()}{this_word[2:]}' \
+                              f'{this_word[0].lower()}{c_case}{punctuation}'
+            else:
+                translation = f'{this_word[1:]}{this_word[0]}{c_case}{punctuation}'
 
-    return translation
-
-
-word_1 = 'Finn'
-word_2 = 'Boise airport'
-word_3 = 'puppy'
-word_4 = 'equine'
-word_5 = 'TESLA'
-word_6 = 'ACROBAT'
-word_7 = 'Tesla!'
-word_8 = 'Boise airport?'
+        print(translation)
