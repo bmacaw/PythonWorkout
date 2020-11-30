@@ -58,7 +58,81 @@ print(pig_latin(word_4))
 print(pig_latin(word_5))
 print(pig_latin(word_6))
 
-# TODO: Handle Punctuation: if a word ends with punctuation, then
+# Handle Punctuation: if a word ends with punctuation, then
 # that punctuation should be shifted to the end of the translated word.
 
+
+def pig_latin(english_word_string):
+    vowels = 'aeiouAEIOU'
+    punctuation = ''
+    all_caps = english_word_string.upper()
+
+    if english_word_string[-1] in '?!.':
+        punctuation = english_word_string[-1]
+        english_word_string = english_word_string[:-1]
+
+    if english_word_string[0] in vowels:
+        if english_word_string == all_caps:
+            translation = english_word_string + 'WAY' + punctuation
+        elif english_word_string[0] == english_word_string[0].upper():
+            translation = english_word_string + 'way' + punctuation
+        else:
+            translation = english_word_string + 'way' + punctuation
+    else:
+        if english_word_string == all_caps:
+            translation = english_word_string[1:] + english_word_string[0] + 'AY' + punctuation
+        elif english_word_string[0] == english_word_string[0].upper():
+            translation = english_word_string[1].upper() + english_word_string[2:]\
+                          + english_word_string[0].lower() + 'ay' + punctuation
+        else:
+            translation = english_word_string[1:] + english_word_string[0] + 'ay' + punctuation
+
+    return translation
+
+
+word_1 = 'Finn'
+word_2 = 'Boise airport'
+word_3 = 'puppy'
+word_4 = 'equine'
+word_5 = 'TESLA'
+word_6 = 'ACROBAT'
+word_7 = 'Tesla!'
+word_8 = 'Boise airport?'
+print(pig_latin(word_1))
+print(pig_latin(word_2))
+print(pig_latin(word_3))
+print(pig_latin(word_4))
+print(pig_latin(word_5))
+print(pig_latin(word_6))
+print((pig_latin(word_7)))
+print(pig_latin(word_8))
+
 # TODO: Consider an alternative version of Pig Latin
+
+
+def pig_latin(english_word_string):
+    vowels = 'aeiouAEIOU'
+    punctuation = ''
+    all_caps = english_word_string.upper()
+
+    if english_word_string[-1] in '?!.':
+        punctuation = english_word_string[-1]
+        english_word_string = english_word_string[:-1]
+
+    if english_word_string[0] in vowels:
+        if english_word_string == all_caps:
+            translation = english_word_string + 'WAY' + punctuation
+        elif english_word_string[0] == english_word_string[0].upper():
+            translation = english_word_string + 'way' + punctuation
+        else:
+            translation = english_word_string + 'way' + punctuation
+    else:
+        if english_word_string == all_caps:
+            translation = english_word_string[1:] + english_word_string[0] + 'AY' + punctuation
+        elif english_word_string[0] == english_word_string[0].upper():
+            translation = english_word_string[1].upper() + english_word_string[2:]\
+                          + english_word_string[0].lower() + 'ay' + punctuation
+        else:
+            translation = english_word_string[1:] + english_word_string[0] + 'ay' + punctuation
+
+    return translation
