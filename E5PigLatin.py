@@ -21,31 +21,32 @@ print(pig_latin(word_4))
 
 # Beyond the exercise:
 # Handle capitalized words
-# TODO: Finish this function to handle capitals
+
 
 def pig_latin(english_word_string):
-    vowels = 'aeiou'
+    vowels = 'aeiouAEIOU'
+    all_caps = english_word_string.upper()
     if english_word_string[0] in vowels:
-        if english_word_string == english_word_string.upper():
-            translation = (english_word_string + 'way').upper()
+        if english_word_string == all_caps:
+            translation = english_word_string + 'WAY'
         elif english_word_string[0] == english_word_string[0].upper():
-            translation = english_word_string+ 'way'
+            translation = english_word_string + 'way'
         else:
             translation = english_word_string + 'way'
     else:
-        if english_word_string == english_word_string.upper():
-            translation = (english_word_string[1].upper() + english_word_string[2:] + english_word_string[
-                0].lower() + 'ay').upper()
+        if english_word_string == all_caps:
+            translation = english_word_string[1:] + english_word_string[0] + 'AY'
         elif english_word_string[0] == english_word_string[0].upper():
-            translation = english_word_string[1].upper() + english_word_string[2:] + english_word_string[0].lower() + 'ay'
+            translation = english_word_string[1].upper() + english_word_string[2:]\
+                          + english_word_string[0].lower() + 'ay'
         else:
-            translation = english_word_string[1:] + english_word_string[0].lower() + 'ay'
+            translation = english_word_string[1:] + english_word_string[0] + 'ay'
 
     return translation
 
 
 word_1 = 'Finn'
-word_2 = 'airport'
+word_2 = 'Boise airport'
 word_3 = 'puppy'
 word_4 = 'equine'
 word_5 = 'TESLA'
@@ -57,5 +58,7 @@ print(pig_latin(word_4))
 print(pig_latin(word_5))
 print(pig_latin(word_6))
 
-# TODO: Handle Punctuation
+# TODO: Handle Punctuation: if a word ends with punctuation, then
+# that punctuation should be shifted to the end of the translated word.
+
 # TODO: Consider an alternative version of Pig Latin
