@@ -41,7 +41,7 @@ def sort_words(some_string):
     return ', '.join(one_word for one_word in sorted(some_string.split()))
 
 
-print(sort_words('Tom Dick Harry')) # Output: Dick, Harry, Tom
+print(sort_words('Tom Dick Harry'))  # Output: Dick, Harry, Tom
 
 
 # Which is the last word alphabetically, in a text file?
@@ -62,8 +62,25 @@ def last_word_alphabetically(filename):
     return output
 
 
-print(last_word_alphabetically('wordperlinetest.txt')) # Output: your
+print(last_word_alphabetically('wordperlinetest.txt'))  # Output: your
 
 
+# Which is the longest word in a text file?
 
-# TODO:Which is the longest word in a text file?
+
+def longest_word(filename):
+    """Given the name of a text file, return the longest word
+    in that file.
+    """
+
+    output = ''
+    for one_line in open(filename):
+        for one_word in one_line.split():
+            if not one_word.isalpha():
+                continue
+            if len(one_word) > len(output):
+                output = one_word
+    return output
+
+
+print(longest_word("wordperlinetest.txt"))  # Output: fortunate
