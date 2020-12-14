@@ -27,6 +27,18 @@ for string in list_o_strings:
 
 # TODO:Given the string "Tom Dick Harry," break it into individual words, and then sort those words
 # alphabetically. Once they're sorted, print them with commas (,) between the names.
+# From author's solution:
+
+
+def sort_words(some_string):
+    """Given a string containing comma-separated words, return a string with the same
+    words, separated by commas, but sorted.
+    """
+
+    return ', '.join(one_word for one_word in sorted(some_string.split()))
+
+
+print(sort_words('Tom Dick Harry'))
 
 
 # TODO:Which is the last word alphabetically, in a text file?
