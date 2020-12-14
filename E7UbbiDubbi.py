@@ -3,6 +3,7 @@
 # function is called with octopus, the function will return the string uboctubopubus.
 import string
 
+
 def ubbi_dubbi(any_word):
     ud_translation = []
     for one_letter in any_word:
