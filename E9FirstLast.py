@@ -23,3 +23,24 @@ for sequence in my_sequences:
 # 13
 # [1, 3]
 # (1, 3)
+
+# Beyond the Exercise:
+# Write a function that takes a list or tuple of numbers. Return a 2-element
+# list containing (respectively) the sum of the even-indexed numbers and the
+# sum of the odd-indexed numbers. Example: even_odd_sums([10, 20, 30, 40, 50, 60])
+# returns [90, 120]
+
+
+def even_odd_sums(numbers):
+    even_sums = sum(numbers[0::2])
+    odd_sums = sum(numbers[1::2])
+    # return [even_sums,odd_sums]
+    return[(sum(numbers[0::2])), (sum(numbers[1::2]))]
+
+
+number_list = [10, 20, 30, 40, 50, 60]
+number_tuple =(10, 20, 30, 40, 50, 60)
+print(even_odd_sums(number_list))
+print(even_odd_sums(number_tuple))
+# Expect [90, 120]
+
