@@ -23,4 +23,3 @@ for sequence in my_sequences:
 # 13
 # [1, 3]
 # (1, 3)
-
