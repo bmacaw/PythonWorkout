@@ -32,9 +32,6 @@ for sequence in my_sequences:
 
 
 def even_odd_sums(numbers):
-    even_sums = sum(numbers[0::2])
-    odd_sums = sum(numbers[1::2])
-    # return [even_sums,odd_sums]
     return[(sum(numbers[0::2])), (sum(numbers[1::2]))]
 
 
