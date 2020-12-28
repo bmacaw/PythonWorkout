@@ -82,4 +82,26 @@ print(sum_numeric(10, 20, 'a', '30', 'bcd'))  # => 60
 # combines all of the keys and values. If a dey appears in more than one
 # argument, the value should be a list containing all of the values from the
 # arguments.
+def combine_dicts(*dictionaries):
+    """Return a dict, the result of combining all
+    elements of args (which should be dicts). If a key
+    occurs in more than one, then the value should be a list
+    containing all values from the arguments.
+    """
+    result = {}
+    for dictionary in dictionaries:
+        for key, value in dictionary.items():
+            if key in result:
+                try:
+                    result[key].append(value)
+                except AttributeError:
+                    result[key] = [result[key], value]
+            else:
+                result[key] = value
 
+    return result
+
+
+dict_1 = {1:'blue', 2: 'red', 3: 'yellow'}
+dict_2 = {1: 'blew', 2: 'read'}
+print(combine_dicts(dict_1, dict_2))  # => {1: ['blue', 'blew'], 2: ['red', 'read'], 3: 'yellow'}
