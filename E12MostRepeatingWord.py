@@ -75,7 +75,7 @@ def shells_by_popularity(filename):
 # (sorted alphabetically) who use each of those shells.
 # From https://github.com/reuven/python-workout/blob/master/ch03-lists-tuples/e12b3_shells_and_users.py
 
-# TODO: This comment should be removed
+# TODO: This comment should really be removed
 
 from collections import defaultdict
 
